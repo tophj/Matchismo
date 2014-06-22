@@ -21,6 +21,8 @@
 		6D2A5F79194F9A880003F3C3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2A5F5B194F9A880003F3C3 /* UIKit.framework */; };
 		6D2A5F81194F9A880003F3C3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D2A5F7F194F9A880003F3C3 /* InfoPlist.strings */; };
 		6D2A5F83194F9A880003F3C3 /* MatchismoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2A5F82194F9A880003F3C3 /* MatchismoTests.m */; };
+		6D62B060195125E500C2A61C /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D62B05F195125E500C2A61C /* Card.m */; };
+		6D62B064195126D800C2A61C /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D62B063195126D800C2A61C /* Deck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		6D2A5F7E194F9A880003F3C3 /* MatchismoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MatchismoTests-Info.plist"; sourceTree = "<group>"; };
 		6D2A5F80194F9A880003F3C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6D2A5F82194F9A880003F3C3 /* MatchismoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchismoTests.m; sourceTree = "<group>"; };
+		6D62B05E195125E500C2A61C /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = ../Card.h; sourceTree = "<group>"; };
+		6D62B05F195125E500C2A61C /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = ../Card.m; sourceTree = "<group>"; };
+		6D62B062195126D800C2A61C /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
+		6D62B063195126D800C2A61C /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +118,10 @@
 		6D2A5F5D194F9A880003F3C3 /* Matchismo */ = {
 			isa = PBXGroup;
 			children = (
-				6D2A5F66194F9A880003F3C3 /* AppDelegate.h */,
-				6D2A5F67194F9A880003F3C3 /* AppDelegate.m */,
 				6D2A5F69194F9A880003F3C3 /* Main.storyboard */,
 				6D2A5F6C194F9A880003F3C3 /* ViewController.h */,
 				6D2A5F6D194F9A880003F3C3 /* ViewController.m */,
+				6D62B061195126BE00C2A61C /* Model */,
 				6D2A5F6F194F9A880003F3C3 /* Images.xcassets */,
 				6D2A5F5E194F9A880003F3C3 /* Supporting Files */,
 			);
@@ -126,6 +131,8 @@
 		6D2A5F5E194F9A880003F3C3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6D2A5F66194F9A880003F3C3 /* AppDelegate.h */,
+				6D2A5F67194F9A880003F3C3 /* AppDelegate.m */,
 				6D2A5F5F194F9A880003F3C3 /* Matchismo-Info.plist */,
 				6D2A5F60194F9A880003F3C3 /* InfoPlist.strings */,
 				6D2A5F63194F9A880003F3C3 /* main.m */,
@@ -150,6 +157,17 @@
 				6D2A5F7F194F9A880003F3C3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6D62B061195126BE00C2A61C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6D62B05E195125E500C2A61C /* Card.h */,
+				6D62B05F195125E500C2A61C /* Card.m */,
+				6D62B062195126D800C2A61C /* Deck.h */,
+				6D62B063195126D800C2A61C /* Deck.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,9 +267,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D62B064195126D800C2A61C /* Deck.m in Sources */,
 				6D2A5F6E194F9A880003F3C3 /* ViewController.m in Sources */,
 				6D2A5F68194F9A880003F3C3 /* AppDelegate.m in Sources */,
 				6D2A5F64194F9A880003F3C3 /* main.m in Sources */,
+				6D62B060195125E500C2A61C /* Card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Matchismo/Matchismo-Prefix.pch";
 				INFOPLIST_FILE = "Matchismo/Matchismo-Info.plist";
@@ -389,6 +410,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Matchismo/Matchismo-Prefix.pch";
 				INFOPLIST_FILE = "Matchismo/Matchismo-Info.plist";
@@ -456,6 +478,7 @@
 				6D2A5F88194F9A880003F3C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6D2A5F89194F9A880003F3C3 /* Build configuration list for PBXNativeTarget "MatchismoTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +487,7 @@
 				6D2A5F8B194F9A880003F3C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
