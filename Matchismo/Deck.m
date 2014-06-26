@@ -22,25 +22,31 @@
     if (!_cards) _cards = [[NSMutableArray alloc]init];
     return _cards;
 }
+
 - (void)addCard:(Card *)card atTop:(BOOL)atTop {
-    
-    
     if(atTop){
-        [self.cards insertObject:card atIndex 0];
+        [self.cards insertObject:card atIndex:0];
     }
     else{
         [self.cards addObject:card];
     }
 }
-- (void)addCard:(Card *)card { ￼ }
-- (Card *)drawRandomCard
-{
-    Card *randomCard = nil;
-    if ([self.cards count]) {
-        unsigned index = arc4random() % [self.cards count];
-        randomCard = self.cards[index];
-        [self.cards removeObjectAtIndex:index];
-    }
-    return randomCard;
+
+-(void)addCard:(Card *)card {
+    [self addCard:card atTop:NO];
+}
+
+-(Card *)drawRandomCard{
+    
+    Card * returnCard = nil;
+    
+    //arc4random returns a random int
+    unsigned index = arc4random() % [self.cards count];
+    returnCard = self.cards[index];
+    [self.cards removeObjectAtIndex:index];
+    
+    return returnCard;
+    
+    
 }
 @end
