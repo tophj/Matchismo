@@ -10,6 +10,7 @@
 
 @interface ViewController ()
 
+
 @end
 
 @implementation ViewController
@@ -26,4 +27,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)setFlipCount:(int)flipCount{
+    _flipCount = flipCount;
+    self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d", self.flipCount];
+}
+
+
+- (IBAction)touchCardButton:(UIButton *)sender {
+    
+    // we know it's not looking at the back and we can flip it.
+    if([sender.currentTitle length]){
+        [sender setBackgroundImage:[UIImage imageNamed:@"cardBack"] forState:UIControlStateNormal];
+        [sender setTitle:@"" forState:UIControlStateNormal ];
+        
+        
+    }
+    else{
+        [sender setBackgroundImage:[UIImage imageNamed:@"cardFront"] forState:UIControlStateNormal];
+        [sender setTitle:@"A♣︎" forState: UIControlStateNormal ];
+    }
+    self.flipCount++;
+    
+    
+}
 @end
