@@ -10,6 +10,8 @@
 
 @implementation PlayingCard
 
+@synthesize suit = _suit;
+
 
 -(NSString *) contents{
     
@@ -18,6 +20,22 @@
 }
 
 
++(NSArray *)validSuits {
+    
+    NSArray * suits = @[@"♣︎",@"♥︎",@"♦︎",@"♠︎"];
+    return suits;
+    
+}
+-(NSString *)suit{
+    return _suit ? _suit : @"?";
+    
+}
 
+-(void)setSuit:(NSString *)suit
+{
+    if([[PlayingCard validSuits] containsObject:suit]){
+        suit = suit;
+    }
+}
 
 @end
