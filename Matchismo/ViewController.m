@@ -8,12 +8,30 @@
 
 #import "ViewController.h"
 
+#import "PlayingCardDeck.h"
+
 @interface ViewController ()
 
+@property(nonatomic, strong) Deck* deck;
 
 @end
 
 @implementation ViewController
+
+@synthesize deck = _deck;
+
+-(Deck *) deck
+{
+    
+    if(!(_deck)){
+        _deck = [[PlayingCardDeck alloc]init];
+    }
+    
+    return _deck;
+    
+    
+    
+}
 
 - (void)viewDidLoad
 {
@@ -44,7 +62,8 @@
     }
     else{
         [sender setBackgroundImage:[UIImage imageNamed:@"cardFront"] forState:UIControlStateNormal];
-        [sender setTitle:@"A♣︎" forState: UIControlStateNormal ];
+        NSString* string = [[self.deck drawRandomCard]contents];
+        [sender setTitle:string forState: UIControlStateNormal ];
     }
     self.flipCount++;
     

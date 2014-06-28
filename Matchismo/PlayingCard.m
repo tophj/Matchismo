@@ -19,6 +19,10 @@
     return [rankString[self.rank] stringByAppendingString:self.suit];
 }
 
++(NSArray *) validRanks{
+    return @[@"?",@"A",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"J",@"Q",@"K"];
+    
+}
 
 +(NSArray *)validSuits {
     
@@ -34,8 +38,12 @@
 -(void)setSuit:(NSString *)suit
 {
     if([[PlayingCard validSuits] containsObject:suit]){
-        suit = suit;
+        _suit = suit;
     }
+}
+
++(NSUInteger )maxRank{
+    return [[self validRanks] count] -1;
 }
 
 @end

@@ -41,10 +41,13 @@
     Card * returnCard = nil;
     
     //arc4random returns a random int
-    unsigned index = arc4random() % [self.cards count];
-    returnCard = self.cards[index];
-    [self.cards removeObjectAtIndex:index];
-    
+    if([self.cards count]){
+        
+        unsigned index = arc4random() % [self.cards count];
+        returnCard = self.cards[index];
+        [self.cards removeObjectAtIndex:index];
+    }
+
     return returnCard;
     
     
