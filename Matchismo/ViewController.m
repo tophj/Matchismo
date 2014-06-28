@@ -18,19 +18,22 @@
 
 @implementation ViewController
 
-@synthesize deck = _deck;
+
 
 -(Deck *) deck
 {
     
     if(!(_deck)){
-        _deck = [[PlayingCardDeck alloc]init];
+        _deck = [self createDeck];
     }
     
     return _deck;
     
     
     
+}
+-(Deck *) createDeck{
+    return [[PlayingCardDeck alloc] init];
 }
 
 - (void)viewDidLoad
