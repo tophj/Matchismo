@@ -16,7 +16,7 @@
 
 -(void)chooseCardAtIndex:(NSUInteger)index;
 -(Card *)cardAtIndex:(NSUInteger)index;
--(void)startNewGame;
+-(void)startNewGame:(NSInteger)count usingDeck:(Deck*)deck;
 
 
 @property (nonatomic,readonly) NSInteger score;

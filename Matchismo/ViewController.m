@@ -15,6 +15,7 @@
 
 
 @property(nonatomic, strong) CardMatchingGame* game;
+@property(nonatomic, strong) Deck* deck;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 
 @end
@@ -31,8 +32,12 @@
 
 
 -(Deck *) createDeck{
-    return [[PlayingCardDeck alloc] init];
+    if(!_deck){
+        _deck = [[PlayingCardDeck alloc]init  ];
+    }
+    return _deck;
 }
+
 
 - (void)viewDidLoad
 {
@@ -62,10 +67,13 @@
 -(IBAction)touchNewGameButton:(UIButton *)sender{
     
     [self flipCardsOver];
-    [self.game startNewGame];
+    [self.game startNewGame:[self.cardButtons count] usingDeck:self.deck];
+    [self updateUI];
+    
     
 }
 
+// Flips cards over and adds them to the deck
 -(void)flipCardsOver{
     
     for(UIButton * cardButton in self.cardButtons){
@@ -75,7 +83,10 @@
         [cardButton setBackgroundImage:[UIImage imageNamed:@"cardBack"] forState:UIControlStateNormal];
         int cardButtonIndex = [self.cardButtons indexOfObject:cardButton];
         Card *card = [self.game cardAtIndex:cardButtonIndex];
-//        [self.game ]
+        card.matched = NO;
+        card.chosen = NO;
+
+        
         
     }
 }

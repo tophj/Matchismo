@@ -93,23 +93,11 @@ static const int COST_TO_CHOOSE = 1;
                     else{
                         
                     }
-                
-                    
-                    
-                    
                 }
                 self.score -= COST_TO_CHOOSE;
                 card.chosen = YES;
-                
             }
-            
-            
-            
         }
-        
-        
-        
-        
     }
 }
 
@@ -120,22 +108,23 @@ static const int COST_TO_CHOOSE = 1;
 
 -(void)startNewGame:(NSInteger)count usingDeck:(Deck*)deck{
     
-    
-    //resets score and cards, then updates the UI
-    self.score = 0;
-    
-    for(int i = 0; i < count; i++){
-        Card * card = [deck drawRandomCard];
+    for(int i = 0; i < [self.cards count]; i++){
+        Card * card = [self.cards objectAtIndex:i];
         
         if(card){
-            [self.cards addObject:card];
+            [deck addCard:card];
+            [self.cards removeObject:card];
+            Card * newCard = [deck drawRandomCard];
+            [self.cards addObject:newCard];
         }
-
+        else{
+            break;
+        }
     }
 
+    self.score = 0;
     
-    
-    
+  
 }
 
 @end
